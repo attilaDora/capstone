@@ -1,5 +1,5 @@
 export type Cocktail = {
     strDrink : string
-    strDrinkThumb : string, //image
+    strDrinkThumb : string
     idDrink: string
 }
