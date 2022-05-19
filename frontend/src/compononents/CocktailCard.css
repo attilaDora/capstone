@@ -1,0 +1,27 @@
+
+.cocktail-card{
+    padding: 12px;
+    width: 300px;
+    text-align: center;
+    font-family: "Apple Chancery";
+    font-size: larger;
+    color: black;
+    background-color: #FFA02E;
+    border: 1px solid #A34000;
+    border-radius: 15px;
+    box-shadow: 3px 10px #A34000;
+    cursor: pointer;
+    transition: filter 0.3s linear, tranform 0.3s linear;
+
+
+}
+
+.name{
+    margin-bottom: 15px;
+}
+
+.image{
+    width: 100%;
+}
+
+
