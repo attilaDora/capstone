@@ -1,5 +1,5 @@
 export type Cocktail = {
-    strDrink : string
-    strDrinkThumb : string
-    idDrink: string
+    strDrink : string //I know they are stupid variable names,
+    strDrinkThumb : string // but if I change them,
+    idDrink: string  //the page doesn't load :D
 }
