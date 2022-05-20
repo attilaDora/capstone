@@ -1,0 +1,11 @@
+.search-feld {
+    display: flex;
+    border-bottom: #3c3e44 3px solid;
+    padding: 24px;
+}
+
+.search-input {
+    margin: 5px;
+    height: 32px;
+    border-radius: 8px;
+}
