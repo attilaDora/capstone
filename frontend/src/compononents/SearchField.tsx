@@ -8,8 +8,8 @@ export type ActionBarProps = {
 
 export default function ActionBar({searchText, onSearchInputChange}: ActionBarProps) {
     return (
-        <div className={"action-feld"}>
-        <input className={"search-input"} placeholder={"Search"} value={searchText}
-    onChange={onSearchInputChange}/>
-    </div>)
+        <div className={"search-field"}>
+            <input className={"search-input"} placeholder={"Search"} value={searchText}
+            onChange={onSearchInputChange}/>
+        </div>)
 }
