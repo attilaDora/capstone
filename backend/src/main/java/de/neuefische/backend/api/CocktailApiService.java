@@ -10,15 +10,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CocktailApiService {
-
+    @Value("${capstone.api.key}")
+    private String API_KEY;
     private final WebClientConfig webClientConfig;
 
     public CocktailApiService(WebClientConfig webClientConfig) {
         this.webClientConfig = webClientConfig;
     }
-
-    @Value("${capstone.api.key}")
-    private String API_KEY;
 
     public CocktailDto retrieveCocktailById(String id){
 
@@ -27,7 +25,6 @@ public class CocktailApiService {
                 .get()
                 .uri("https://www.thecocktaildb.com/api/json/v2/"+API_KEY+"/lookup.php?i="+id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .header("x-api-key", API_KEY)
                 .retrieve()
                 .toEntity(CocktailDto.class)
                 .block();
