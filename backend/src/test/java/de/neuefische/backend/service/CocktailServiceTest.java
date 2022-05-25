@@ -28,7 +28,7 @@ class CocktailServiceTest {
                 .build();
         when(cocktailRepository.findAll()).thenReturn(List.of(cocktail1,cocktail2));
         //WHEN
-        List<Cocktail> actual = cocktailService.getCocktails();
+        List<Cocktail> actual = cocktailService.getAllCocktails();
         //THEN
         List<Cocktail> expected = List.of(cocktail1,cocktail2);
         verify(cocktailRepository).findAll();

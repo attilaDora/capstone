@@ -9,8 +9,9 @@ type CocktailsOnHomepageProps = {
 export default function CocktailsOnHomepage({cocktails}: CocktailsOnHomepageProps){
 
     return (
+
         <div className="cocktails-on-homepage">
-            {cocktails.map((cocktail) => <CocktailCard key={cocktail.idDrink} cocktail={cocktail}/> )}
+            {cocktails.map((cocktail) => <CocktailCard key={cocktail.id} cocktail={cocktail}/> )}
         </div>
     )
 }

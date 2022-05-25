@@ -17,7 +17,7 @@ public class CocktailController {
     @Autowired
     public CocktailController(CocktailService cocktailService) {this.cocktailService = cocktailService;}
 
-    @GetMapping
-    public List<Cocktail> getCocktails() {return cocktailService.getCocktails();}
 
+    @GetMapping()
+    public List<Cocktail> getAllCocktails() {return cocktailService.getAllCocktails();}
 }

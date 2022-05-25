@@ -16,6 +16,6 @@ public class CocktailService {
         this.cocktailRepository = cocktailRepository;
     }
 
-    public List<Cocktail> getCocktails() { return cocktailRepository.findAll();
-    }
+    public List<Cocktail> getAllCocktails() { return cocktailRepository.findAll();}
+
 }
