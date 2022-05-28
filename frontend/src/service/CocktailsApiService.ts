@@ -1,10 +1,7 @@
-export const fetchCocktails = (url: string) => {
-    return fetch(url)
-        .then(response => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error("Error while loading the content!")
-            }
-        })
+import {Cocktail} from "../model/Cocktail";
+import axios from "axios";
+
+export const getAllCocktails: () => Promise<Cocktail[]> = () => {
+    return axios.get<Cocktail[]>("cocktail")
+        .then(response => response.data)
 }

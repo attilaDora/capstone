@@ -8,7 +8,7 @@ type CocktailCardProps = {
 export default function CocktailCard( { cocktail } : CocktailCardProps){
 
     return <div className="cocktail-card">
-        <h3 className="name">{cocktail.strDrink}</h3>
-        <img className="image" src={cocktail.strDrinkThumb} alt={cocktail.strDrink}/>
+        <h3 className="name">{cocktail.name}</h3>
+        <img className="image" src={cocktail.imageUrl} alt={cocktail.name}/>
     </div>
 }
