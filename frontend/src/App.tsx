@@ -1,29 +1,23 @@
-import React, {ChangeEvent, useState} from 'react';
 import './App.css';
-import CocktailsOnHomepage from "./compononents/CocktailsOnHomepage";
 import Header from "./compononents/Header";
-import SearchField from './compononents/SearchField'
 import useCocktails from "./hooks/useCocktails";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import CocktailRecipePage from "./pages/CocktailRecipePage";
+import CocktailHomePage from "./pages/CocktailHomePage";
+
 
 export default function App() {
-
     const cocktails = useCocktails()
-    const [searchText, setSearchText] = useState<string>("")
 
-    const filteredCocktails = cocktails.filter(cocktail => cocktail.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
-
-    const onSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchText(event.target.value)
-    }
     return (
-        <div className="App">
-            <Header />
-            <br/>
-            <SearchField searchText={searchText} onSearchInputChange={onSearchInputChange} />
-
-            <CocktailsOnHomepage cocktails={filteredCocktails} />
-
-        </div>
+            <div className="App">
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route path={"/"} element={<CocktailHomePage cocktails={cocktails}/>}/>
+                        <Route path={"/cocktail/:id"} element={<CocktailRecipePage />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
     );
 }
-

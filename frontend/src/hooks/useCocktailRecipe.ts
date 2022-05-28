@@ -1,0 +1,20 @@
+import {useEffect, useState} from "react";
+import {Cocktail} from "../model/Cocktail";
+import {getCocktailById} from "../service/CocktailsApiService";
+
+export default function useCocktailRecipe(id:string | undefined){
+
+    const[cocktailRecipe, setCocktailRecipe] = useState<Cocktail>();
+    useEffect(() => {
+        if (id){
+            getCocktailBy(id)
+        }
+    }, [])
+    const getCocktailBy = (id:string) => {
+    console.log(id)
+        getCocktailById(id)
+            .then(data => setCocktailRecipe(data))
+    }
+
+    return {cocktailRecipe}
+}

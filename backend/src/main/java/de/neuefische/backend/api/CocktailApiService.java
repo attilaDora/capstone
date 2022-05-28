@@ -20,13 +20,13 @@ public class CocktailApiService {
 
     public CocktailDto retrieveCocktailById(String id){
 
-        ResponseEntity<CocktailDto> responseEntity = webClient.get()
+        ResponseEntity<CocktailApiResponse> responseEntity = webClient.get()
                 .uri("https://www.thecocktaildb.com/api/json/v2/"+API_KEY+"/lookup.php?i="+id)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
-                .toEntity(CocktailDto.class)
+                .toEntity(CocktailApiResponse.class)
                 .block();
 
-        return responseEntity.getBody();
+        return responseEntity.getBody().getDrinks().get(0);
     }
 }
