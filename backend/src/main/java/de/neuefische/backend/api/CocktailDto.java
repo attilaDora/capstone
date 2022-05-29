@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 public class CocktailDto {
     @JsonProperty("idDrink")
     private String id;
-    @JsonProperty("StrDrink")
+    @JsonProperty("strDrink")
     private String name;
     @JsonProperty("strGlass")
     private String glass;
     @JsonProperty("strDrinkThumb")
-    private String image;
+    private String imageUrl;
 
     @JsonProperty("strInstructions")
     private String instructions;
@@ -29,39 +29,39 @@ public class CocktailDto {
     @JsonProperty("strInstructionsIT")
     private String instructionsIT;
 
-    @JsonProperty("strIngredients")
-    private String ingredients;
-    @JsonProperty("strIngredients2")
-    private String ingredients2;
-    @JsonProperty("strIngredients3")
-    private String ingredients3;
-    @JsonProperty("strIngredients4")
-    private String ingredients4;
-    @JsonProperty("strIngredients5")
-    private String ingredients5;
-    @JsonProperty("strIngredients6")
-    private String ingredients6;
-    @JsonProperty("strIngredients7")
-    private String ingredients7;
-    @JsonProperty("strIngredients8")
-    private String ingredients8;
-    @JsonProperty("strIngredients9")
-    private String ingredients9;
-    @JsonProperty("strIngredients10")
-    private String ingredients10;
-    @JsonProperty("strIngredients11")
-    private String ingredients11;
-    @JsonProperty("strIngredients12")
-    private String ingredients12;
-    @JsonProperty("strIngredients13")
-    private String ingredients13;
-    @JsonProperty("strIngredients14")
-    private String ingredients14;
-    @JsonProperty("strIngredients15")
-    private String ingredients15;
+    @JsonProperty("strIngredient1")
+    private String ingredient1;
+    @JsonProperty("strIngredient2")
+    private String ingredient2;
+    @JsonProperty("strIngredient3")
+    private String ingredient3;
+    @JsonProperty("strIngredient4")
+    private String ingredient4;
+    @JsonProperty("strIngredient5")
+    private String ingredient5;
+    @JsonProperty("strIngredient6")
+    private String ingredient6;
+    @JsonProperty("strIngredient7")
+    private String ingredient7;
+    @JsonProperty("strIngredient8")
+    private String ingredient8;
+    @JsonProperty("strIngredient9")
+    private String ingredient9;
+    @JsonProperty("strIngredient10")
+    private String ingredient10;
+    @JsonProperty("strIngredient11")
+    private String ingredient11;
+    @JsonProperty("strIngredient12")
+    private String ingredient12;
+    @JsonProperty("strIngredient13")
+    private String ingredient13;
+    @JsonProperty("strIngredient14")
+    private String ingredient14;
+    @JsonProperty("strIngredient15")
+    private String ingredient15;
 
-    @JsonProperty("strMeasure")
-    private String measure;
+    @JsonProperty("strMeasure1")
+    private String measure1;
     @JsonProperty("strMeasure2")
     private String measure2;
     @JsonProperty("strMeasure3")
