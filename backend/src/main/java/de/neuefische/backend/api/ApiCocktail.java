@@ -16,6 +16,7 @@ public class ApiCocktail {
     private String glass;
     private String imageUrl;
 
+
     private String instructions;
     private String instructionsES;
     private String instructionsDE;

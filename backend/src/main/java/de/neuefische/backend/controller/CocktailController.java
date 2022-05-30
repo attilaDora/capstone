@@ -21,7 +21,6 @@ public class CocktailController {
         this.cocktailService = cocktailService;
     }
 
-
     @GetMapping()
     public List<Cocktail> getAllCocktails() {
         return cocktailService.getCocktails();

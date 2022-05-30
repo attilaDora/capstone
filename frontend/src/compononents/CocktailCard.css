@@ -12,8 +12,6 @@
     box-shadow: 3px 10px #A34000;
     cursor: pointer;
     transition: filter 0.3s linear, tranform 0.3s linear;
-
-
 }
 
 .name{
@@ -23,5 +21,3 @@
 .image{
     width: 100%;
 }
-
-

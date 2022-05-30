@@ -90,5 +90,4 @@ public class CocktailDto {
     private String measure14;
     @JsonProperty("strMeasure15")
     private String measure15;
-
 }
