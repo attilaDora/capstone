@@ -1,6 +1,8 @@
 import './CocktailRecipe.css';
 import {Cocktail} from "../model/Cocktail";
 import * as React from "react";
+import {Button} from "@mui/material";
+
 
 type CocktailRecipeProps = {
     cocktail : Cocktail
@@ -13,7 +15,7 @@ export default function CocktailRecipe( { cocktail } : CocktailRecipeProps ){
         <div className="cocktail-recipe_card" >
 
         <div className="wrapper">
-            <div className="box a">{cocktail.name}</div>
+            <div className="box a">{cocktail.name}<Button variant="text">Add to favorites</Button></div>
             <div className="box b"><img className="cocktail-recipe_image" src={cocktail.imageUrl} alt={cocktail.name}/></div>
             <div className="box c"><h3>Glass type:</h3> {cocktail.glass}</div>
             <div className="box d"><h3>Ingredients:</h3> {cocktail.measure1} {cocktail.ingredient1}
