@@ -11,10 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "cocktails")
-public class Cocktail {
-    @Id
-    private String id;
-    private String name;
-    private String imageUrl;
-}
+@Document(collection = "favourites")
+public class Favourite {
+        @Id
+        private String id;
+        private String name;
+        private String imageUrl;
+    }

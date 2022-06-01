@@ -11,7 +11,6 @@ export default function useCocktailRecipe(id:string | undefined){
         }
     }, [])
     const getCocktailBy = (id:string) => {
-    console.log(id)
         getCocktailById(id)
             .then(data => setCocktailRecipe(data))
     }
