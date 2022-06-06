@@ -1,4 +1,3 @@
-
 .cocktail-recipe {
     display: grid;
     align-content: center;
@@ -17,52 +16,59 @@
 
 .cocktail-recipe_image {
     width: 100%;
+
 }
 
 .wrapper {
     display: grid;
-    grid-gap: 15px;
+    grid-gap: 1rem;
     color: #66340D;
     grid-template-columns: auto;
     background-color: #F5D8AF;
-    justify-content: center;
-    align-content: center;
 }
 
 .box {
     background-color: #F5D8AF;
     border-radius: 20px;
     padding: 10px;
-    font-size: 30px;
-    justify-content: center;
-    align-content: center;
-
 }
-
+h3{
+    font-size: 30px;
+}
 .a {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
     font-family: "Apple Chancery";
     display: grid;
-    align-content: center;
-    justify-content: center;
+    align-self: center;
+    justify-self: center;
     font-size: 70px;
     font-weight: 900;
     text-shadow: 2px 5px black;
 }
 .b {
     grid-column: 3 ;
-    grid-row: 1 / span 2;
+    grid-row: 2 / span 3;
+    font-size: 20px;
+    align-self: center;
+    justify-self: center;
 }
 .c {
     grid-column: 1 ;
     grid-row: 2 ;
+    font-size: 20px;
+    justify-self: center;
 }
 .d {
     grid-column: 2 ;
     grid-row: 2 ;
+    font-size: 20px;
+    justify-self: center;
+
 }
 .e {
-    grid-column: 1 / span 3;
-    grid-row: 3;
+    grid-column: 1 / span 2;
+    grid-row: 4 ;
+    font-size: 20px;
+
 }
 

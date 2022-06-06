@@ -1,0 +1,11 @@
+.favourites{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:  center;
+    border-top: #3c3e44 3px solid;;
+}
+
+.favourites .cocktail-card{
+    margin: 8px;
+    cursor: auto;
+}
