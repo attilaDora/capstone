@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import SearchField from "../compononents/SearchField";
-import CocktailsOnHomepage from "../compononents/CocktailsOnHomepage";
+import Cocktails from "../compononents/Cocktails";
 import {Cocktail} from "../model/Cocktail";
 
 export type CocktailHomePageProps={
@@ -19,7 +19,7 @@ export default function CocktailHomePage({cocktails}:CocktailHomePageProps) {
 
     <SearchField searchText={searchText} onSearchInputChange={onSearchInputChange}/>
 
-    <CocktailsOnHomepage cocktails={filteredCocktails}/>
+    <Cocktails cocktails={filteredCocktails}/>
     </div>
 );
 }
