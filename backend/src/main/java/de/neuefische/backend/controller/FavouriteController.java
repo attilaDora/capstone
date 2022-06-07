@@ -20,4 +20,7 @@ public class FavouriteController {
 
     @PostMapping
     public Favourite addFavourite(@RequestBody Favourite favourite){ return favouriteService.addFavourite(favourite);}
+
+    @DeleteMapping("{id}")
+    public void deleteFavourite(@PathVariable String id) {favouriteService.deleteFavourite(id);}
 }

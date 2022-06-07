@@ -85,5 +85,34 @@ class FavouriteControllerTest {
                 .build();
         assertEquals(expected, actual);
     }
+
+    @Test
+    void deleteRecipe() {
+        //GIVEN
+        Favourite addFavourite = Favourite
+                .builder()
+                .name("Favourite")
+                .id("123")
+                .imageUrl("xy.com")
+                .build();
+        Favourite addedFavourite = webTestClient.post()
+                .uri("favourite")
+                .bodyValue(addFavourite)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(Favourite.class)
+                .returnResult()
+                .getResponseBody();
+
+        //WHEN
+        assertNotNull(addedFavourite);
+        webTestClient.delete()
+                .uri("/favourite/" + addedFavourite.getId())
+                .exchange()
+
+                //THEN
+
+                .expectStatus().is2xxSuccessful();
+    }
 }
 

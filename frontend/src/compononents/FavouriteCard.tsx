@@ -17,7 +17,7 @@ export default function FavouriteCard( { favourite } : FavouriteCardProps){
 
     return <div className="cocktail-card" >
 
-        <h3 className="name"onClick={onClick}>{favourite.name}</h3>
-        <img className="image" onClick={onClick}src={favourite.imageUrl} alt={favourite.name}/>
+        <h3 className="name" onClick={onClick}>{favourite.name}</h3>
+        <img className="image" onClick={onClick} src={favourite.imageUrl} alt={favourite.name}/>
     </div>
 }
