@@ -25,4 +25,5 @@ public class FavouriteService {
         addFavourite.setImageUrl(favourite.getImageUrl());
         return favouriteRepository.insert(addFavourite);
     }
+    public void deleteFavourite(String id){favouriteRepository.deleteById(id);}
 }

@@ -9,7 +9,7 @@ import FavouriteCocktailsPage from "./pages/FavouriteCocktailsPage";
 
 export default function App() {
     const cocktails = useCocktails()
-    const {addFavourite, favouriteCocktails} = useFavourite()
+    const {addFavourite , deleteFavourite,favouriteCocktails} = useFavourite()
 
     return (
             <div className="App">
@@ -17,7 +17,7 @@ export default function App() {
                     <Header />
                     <Routes>
                         <Route path={"/"} element={<CocktailHomePage cocktails={cocktails}/>}/>
-                        <Route path={"/cocktail/:id"} element={<CocktailRecipePage addFavourite = {addFavourite}/>} />
+                        <Route path={"/cocktail/:id"} element={<CocktailRecipePage addFavourite = {addFavourite}  deleteFavourite={deleteFavourite}/>} />
                         <Route path={"/favourite"} element={<FavouriteCocktailsPage favourites = {favouriteCocktails}/>}/>
                     </Routes>
                 </BrowserRouter>

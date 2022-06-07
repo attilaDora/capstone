@@ -63,7 +63,14 @@ class FavouriteServiceTest {
                 .build();
         verify(favouriteRepository).insert(addFavourite);
         assertEquals(expected, actual);
+    }
 
+    @Test
+    void deleteFavourite() {
+        //GIVEN WHEN
+        favouriteService.deleteFavourite("123");
+        //THEN
+        verify(favouriteRepository).deleteById("123");
     }
 
 }

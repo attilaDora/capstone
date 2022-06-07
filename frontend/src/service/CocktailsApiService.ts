@@ -21,3 +21,7 @@ export const getFavourites: () => Promise<Favourite[]> = () => {
     return axios.get<Favourite[]>("/favourite")
         .then(response => response.data)
 }
+
+export const removeFavourite: (id: string) => Promise<void> = (id:string) => {
+    return axios.delete(`/favourite/${id}`)
+}

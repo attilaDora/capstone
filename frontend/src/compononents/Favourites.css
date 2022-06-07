@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content:  center;
-    border-top: #3c3e44 3px solid;;
+    border-top: #3c3e44 3px solid;
 }
 
 .favourites .cocktail-card{
