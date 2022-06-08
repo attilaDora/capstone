@@ -38,10 +38,9 @@ h3{
 .a {
     grid-column: 1 / span 3;
     font-family: "Apple Chancery";
-    display: grid;
     align-self: center;
     justify-self: center;
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 900;
     text-shadow: 2px 5px black;
 }
@@ -72,3 +71,26 @@ h3{
 
 }
 
+.favourite-button {
+    color: #66340D;
+    border: none;
+    border-radius: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 20px;
+
+}
+.favourite-button:hover{
+    background-color: #DBB67B;
+    border: solid 1px #66340D;
+}
+
+.favourite-button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.languages:active {
+    transform: translateY(4px);
+}
