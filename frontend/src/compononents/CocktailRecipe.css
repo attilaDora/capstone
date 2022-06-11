@@ -37,7 +37,7 @@ h3{
 }
 .a {
     grid-column: 1 / span 3;
-    font-family: "Apple Chancery";
+    font-family: "Apple Chancery", serif;
     align-self: center;
     justify-self: center;
     font-size: 60px;
@@ -93,4 +93,14 @@ h3{
 
 .languages:active {
     transform: translateY(4px);
+}
+
+.shopping-cart{
+    border: solid 1px #66340D;
+    background-color: #F5CC89;
+}
+
+.shopping-cart:active {
+    transform: translateY(3px);
+    box-shadow: 2px 2px #666;
 }
