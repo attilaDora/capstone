@@ -3,9 +3,11 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import useShoppingItems from "../hooks/useShoppingItems";
 
-export default function Header() {
+type HeaderProps = {
+    deleteShoppingItem : (id: string) => void
+}
+export default function Header({deleteShoppingItem}:HeaderProps){
     const {shoppingItems} = useShoppingItems()
-
     const navigate = useNavigate()
     const [showCart, setShowCart] = useState(false);
     return (
@@ -31,7 +33,7 @@ export default function Header() {
                     <div className={"shopping-cart-header"}>
                     </div>
                     <ul className={"shopping-cart-items"}>
-                        {shoppingItems.map((shoppingItem) => <div key={shoppingItem.id}>{shoppingItem.name}</div> )}
+                        {shoppingItems.map((shoppingItem) => <div key={shoppingItem.id}>{shoppingItem.name} <button onClick= { () => deleteShoppingItem}>Delete</button> </div> )}
                     </ul>
                 </div>
             </div>}

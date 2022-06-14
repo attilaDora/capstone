@@ -26,4 +26,5 @@ public class ShoppingItemsService {
         addShoppingItem.setName(shoppingItem.getName());
         return shoppingItemsRepository.insert(addShoppingItem);
     }
+    public void deleteShoppingItems(String id){shoppingItemsRepository.deleteById(id);}
 }

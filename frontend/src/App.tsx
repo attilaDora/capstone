@@ -11,12 +11,12 @@ import useShoppingItems from "./hooks/useShoppingItems";
 export default function App() {
     const cocktails = useCocktails()
     const {addFavourite , deleteFavourite, favouriteCocktails} = useFavourite()
-    const {addShoppingItem} = useShoppingItems()
+    const {addShoppingItem, deleteShoppingItem} = useShoppingItems()
 
     return (
             <div className="App">
                 <BrowserRouter>
-                    <Header />
+                    <Header  deleteShoppingItem={deleteShoppingItem}/>
                     <Routes>
                         <Route path={"/"} element={<CocktailHomePage cocktails={cocktails}/>}/>
                         <Route path={"/cocktail/:id"} element={<CocktailRecipePage addFavourite = {addFavourite}  deleteFavourite={deleteFavourite} addShoppingItem={addShoppingItem}/>} />

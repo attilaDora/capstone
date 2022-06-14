@@ -36,3 +36,7 @@ export const getShoppingItems: () => Promise<ShoppingItem[]> = () => {
     return axios.get<ShoppingItem[]>("/shoppingitem")
         .then(response => response.data)
 }
+
+export const removeShoppingItem: (id: string) => Promise<void> = (id:string) => {
+    return axios.delete(`/shoppingitem/${id}`)
+}

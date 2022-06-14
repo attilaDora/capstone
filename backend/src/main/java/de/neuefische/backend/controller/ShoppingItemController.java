@@ -26,4 +26,6 @@ public class ShoppingItemController {
     public ShoppingItem addShoppingItem(@RequestBody ShoppingItem shoppingItem) {
         return shoppingItemsService.addShoppingItem(shoppingItem);
     }
+    @DeleteMapping("{id}")
+    public void deleteShoppingItems(@PathVariable String id) {shoppingItemsService.deleteShoppingItems(id);}
 }
