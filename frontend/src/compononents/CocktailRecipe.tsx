@@ -9,12 +9,14 @@ import spanishPic from './spanishPic.jpeg';
 import italianPic from './italianPic.jpeg';
 import englishPic from './englishPic.jpeg';
 import {useNavigate} from "react-router-dom";
+import {ShoppingItem} from "../model/ShoppingItem";
 
 
 type CocktailRecipeProps = {
     cocktail: Cocktail
     addFavourite: (favourite: Favourite) => void
     deleteFavourite: (favourite: string) => void
+    addShoppingItem: (shoppingItem: ShoppingItem) => void
 }
 
 export enum languages{
@@ -25,7 +27,7 @@ export enum languages{
     english ="english",
 }
 
-export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite}: CocktailRecipeProps) {
+export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite, addShoppingItem}: CocktailRecipeProps) {
 
     let history = useNavigate()
 
@@ -36,8 +38,10 @@ export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite}
         const ingredient = cocktail["ingredient" + index];
         if (measure === null || measure === undefined) return "";
         if (ingredient === null || ingredient === undefined) return "";
+    const shoppingItem={name : ingredient}
+
         return <div> {measure + " " + ingredient}
-            <button className={"shopping-cart"}>🛒</button>
+            <button className={"shopping-cart-button"} onClick={()=>addShoppingItem(shoppingItem)}>🛒</button>
         </div>
     });
 
@@ -99,7 +103,7 @@ export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite}
                     <div className="box b"><img className="cocktail-recipe_image" src={cocktail.imageUrl}
                                                 alt={cocktail.name}/></div>
                     <div className="box c"><h3>Glass type:</h3> {cocktail.glass}</div>
-                    <div className="box d"><h3>Ingredients:</h3> {allIngredients}</div>
+                    <div className="box d"><h3>Ingredients:</h3>{allIngredients} </div>
                     <div className="box e">
                         {language()}<br/>
                         <img src={germanPic} alt={"german-Pic"} onClick={germanLanguage} className={"languages"}/>

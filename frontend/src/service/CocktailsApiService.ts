@@ -1,6 +1,7 @@
 import {Cocktail} from "../model/Cocktail";
 import axios from "axios";
 import {Favourite} from "../model/Favourite";
+import {ShoppingItem} from "../model/ShoppingItem";
 
 export const getAllCocktails: () => Promise<Cocktail[]> = () => {
     return axios.get<Cocktail[]>("/cocktail")
@@ -24,4 +25,14 @@ export const getFavourites: () => Promise<Favourite[]> = () => {
 
 export const removeFavourite: (id: string) => Promise<void> = (id:string) => {
     return axios.delete(`/favourite/${id}`)
+}
+
+export function postShoppingItem (addShoppingItem: ShoppingItem){
+    return axios.post("/shoppingitem", addShoppingItem)
+        .then(response => response.data)
+}
+
+export const getShoppingItems: () => Promise<ShoppingItem[]> = () => {
+    return axios.get<ShoppingItem[]>("/shoppingitem")
+        .then(response => response.data)
 }
