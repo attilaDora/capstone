@@ -87,7 +87,7 @@ class FavouriteControllerTest {
     }
 
     @Test
-    void deleteRecipe() {
+    void deleteFavourite() {
         //GIVEN
         Favourite addFavourite = Favourite
                 .builder()

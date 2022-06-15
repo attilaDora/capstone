@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.model.Favourite;
 import de.neuefische.backend.model.ShoppingItem;
 import de.neuefische.backend.repository.ShoppingItemsRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.reactive.server.WebTestClient;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -82,6 +81,34 @@ class ShoppingItemControllerTest {
                 .name("shoppingItem1")
                 .build();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void deleteShoppingItem() {
+        //GIVEN
+        ShoppingItem addShoppingItem = ShoppingItem
+                .builder()
+                .name("ShoppingItem")
+                .id("123")
+                .build();
+        ShoppingItem addedShoppingItem = webTestClient.post()
+                .uri("shoppingitem")
+                .bodyValue(addShoppingItem)
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(ShoppingItem.class)
+                .returnResult()
+                .getResponseBody();
+
+        //WHEN
+        assertNotNull(addedShoppingItem);
+        webTestClient.delete()
+                .uri("/shoppingitem/" + addedShoppingItem.getId())
+                .exchange()
+
+                //THEN
+
+                .expectStatus().is2xxSuccessful();
     }
 }
 

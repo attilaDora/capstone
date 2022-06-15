@@ -7,10 +7,10 @@ import {ShoppingItem} from "../model/ShoppingItem";
 type CocktailRecipeProps = {
     addFavourite : (favourite: Favourite) => void
     deleteFavourite : (id: string) => void
-    addShoppingItem: (shoppingItem:ShoppingItem) => void
+    addShoppingItem: (shoppingItem: Omit<ShoppingItem, "id">) => void
 }
 
-export default function CocktailRecipePage( { addFavourite, deleteFavourite, addShoppingItem} : CocktailRecipeProps ) {
+export default function CocktailRecipePage( { addFavourite, deleteFavourite, addShoppingItem } : CocktailRecipeProps ) {
 
     const params = useParams()
     const id = params.id
@@ -18,7 +18,7 @@ export default function CocktailRecipePage( { addFavourite, deleteFavourite, add
 
     return (
         <div>
-            {cocktailRecipe && <CocktailRecipe cocktail={cocktailRecipe} addFavourite={addFavourite} deleteFavourite={deleteFavourite} addShoppingItem={addShoppingItem}/>}
+            {cocktailRecipe && <CocktailRecipe cocktail={cocktailRecipe} addFavourite={addFavourite} deleteFavourite={deleteFavourite} addShoppingItem={addShoppingItem} />}
         </div>
     )
 }

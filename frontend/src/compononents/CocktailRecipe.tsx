@@ -16,7 +16,7 @@ type CocktailRecipeProps = {
     cocktail: Cocktail
     addFavourite: (favourite: Favourite) => void
     deleteFavourite: (favourite: string) => void
-    addShoppingItem: (shoppingItem: ShoppingItem) => void
+    addShoppingItem: (shoppingItem: Omit<ShoppingItem,"id">) => void
 }
 
 export enum languages{
