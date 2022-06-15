@@ -9,15 +9,25 @@ import spanishPic from './spanishPic.jpeg';
 import italianPic from './italianPic.jpeg';
 import englishPic from './englishPic.jpeg';
 import {useNavigate} from "react-router-dom";
+import {ShoppingItem} from "../model/ShoppingItem";
 
 
 type CocktailRecipeProps = {
     cocktail: Cocktail
     addFavourite: (favourite: Favourite) => void
     deleteFavourite: (favourite: string) => void
+    addShoppingItem: (shoppingItem: ShoppingItem) => void
 }
 
-export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite}: CocktailRecipeProps) {
+export enum languages{
+    german ="german",
+    spanish ="spanish",
+    italian ="italian",
+    french ="french",
+    english ="english",
+}
+
+export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite, addShoppingItem}: CocktailRecipeProps) {
 
     let history = useNavigate()
 
@@ -26,169 +36,83 @@ export default function CocktailRecipe({cocktail, addFavourite, deleteFavourite}
         const measure = cocktail["measure" + index];
         // @ts-ignore
         const ingredient = cocktail["ingredient" + index];
-        if (measure === null || measure === undefined) return;
-        if (ingredient === null || ingredient === undefined) return;
-        return <p>  {measure + " " + ingredient} <br/></p>
+        if (measure === null || measure === undefined) return "";
+        if (ingredient === null || ingredient === undefined) return "";
+    const shoppingItem={name : ingredient}
+
+        return <div> {measure + " " + ingredient}
+            <button className={"shopping-cart-button"} onClick={()=>addShoppingItem(shoppingItem)}>🛒</button>
+        </div>
     });
 
+     const [currentLanguage, setCurrentLanguage] = useState("")
 
-    const [germanOn, setGermanOn] = useState(false)
-    const [frenchOn, setFrenchOn] = useState(false)
-    const [spanishOn, setSpanishOn] = useState(false)
-    const [italianOn, setItalianOn] = useState(false)
-    const [englishOn, setEnglishOn] = useState(false)
 
     function germanLanguage() {
         if (cocktail.instructionsDE === null || cocktail.instructionsDE === undefined) {
-            alert("Sorry! The german language is not available for the chosen cocktail.")
-        } else {
-            if (germanOn) {
-                setGermanOn(false)
-            } else {
-                setGermanOn(true)
-                if (frenchOn) {
-                    setFrenchOn(false)
-                }
-                if (spanishOn) {
-                    setSpanishOn(false)
-                }
-                if (italianOn) {
-                    setItalianOn(false)
-                }
-                if (englishOn) {
-                    setEnglishOn(false)
-                }
-            }
-        }
+            return alert("Sorry! The german language is not available for the chosen cocktail.")
+        } else return setCurrentLanguage("german")
     }
 
     function frenchLanguage() {
         if (cocktail.instructionsFR === null || cocktail.instructionsFR === undefined) {
-            alert("Sorry! The french language is not available for the chosen cocktail.")
-        } else {
-            if (frenchOn) {
-                setFrenchOn(false)
-            } else {
-                setFrenchOn(true)
-                if (germanOn) {
-                    setGermanOn(false)
-                }
-                if (spanishOn) {
-                    setSpanishOn(false)
-                }
-                if (italianOn) {
-                    setItalianOn(false)
-                }
-                if (englishOn) {
-                    setEnglishOn(false)
-                }
-            }
-        }
+            return alert("Sorry! The french language is not available for the chosen cocktail.")
+        } else return setCurrentLanguage("french")
     }
 
     function italianLanguage() {
         if (cocktail.instructionsIT === null || cocktail.instructionsIT === undefined) {
-            alert("Sorry! The italian language is not available for the chosen cocktail.")
-        } else {
-            if (italianOn) {
-                setItalianOn(false)
-            } else {
-                setItalianOn(true)
-                if (germanOn) {
-                    setGermanOn(false)
-                }
-                if (spanishOn) {
-                    setSpanishOn(false)
-                }
-                if (frenchOn) {
-                    setFrenchOn(false)
-                }
-                if (englishOn) {
-                    setEnglishOn(false)
-                }
-            }
-        }
+            return alert("Sorry! The italian language is not available for the chosen cocktail.")
+        } else return setCurrentLanguage("italian")
     }
 
     function spanishLanguage() {
         if (cocktail.instructionsES === null || cocktail.instructionsES === undefined) {
-            alert("Sorry! The spanish language is not available for the chosen cocktail.")
-        } else {
-            if (spanishOn) {
-                setSpanishOn(false)
-            } else {
-                setSpanishOn(true)
-                if (germanOn) {
-                    setGermanOn(false)
-                }
-                if (frenchOn) {
-                    setFrenchOn(false)
-                }
-                if (italianOn) {
-                    setItalianOn(false)
-                }
-                if (englishOn) {
-                    setEnglishOn(false)
-                }
-            }
-        }
+            return alert("Sorry! The spanish language is not available for the chosen cocktail.")
+        } else return setCurrentLanguage("spanish")
     }
 
     function englishLanguage() {
-        if (cocktail.instructions === null || cocktail.instructions === undefined) {
-            alert("Sorry! The spanish language is not available for the chosen cocktail.")
-        } else {
-            if (englishOn) {
-                setEnglishOn(false)
-            } else {
-                setEnglishOn(true)
-                if (germanOn) {
-                    setGermanOn(false)
-                }
-                if (frenchOn) {
-                    setFrenchOn(false)
-                }
-                if (italianOn) {
-                    setItalianOn(false)
-                }
-                if (spanishOn) {
-                    setSpanishOn(false)
-                }
-            }
-        }
+        if (cocktail.instructions === null || cocktail.instructionsDE === undefined) {
+            return alert("Sorry! The english language is not available for the chosen cocktail.")
+        } else return setCurrentLanguage("english")
     }
 
-    const languages = () => {
-        if (germanOn) return cocktail.instructionsDE
-        else if (frenchOn) return cocktail.instructionsFR
-        else if (italianOn) return cocktail.instructionsIT
-        else if (spanishOn) return cocktail.instructionsES
-        else return cocktail.instructions
-    };
+    const language = () => {
+        if (currentLanguage===languages.german) return cocktail.instructionsDE
+        else if (currentLanguage===languages.french) return cocktail.instructionsFR
+        else if (currentLanguage===languages.italian) return cocktail.instructionsIT
+        else if (currentLanguage===languages.spanish) return cocktail.instructionsES
+        else if (currentLanguage===languages.english) return cocktail.instructions
+        else return cocktail.instructions}
 
-    return (<div className="cocktail-recipe_">
-        <div className="cocktail-recipe_card">
-            <div className="wrapper">
-                <div className="box a">{cocktail.name}<br/><button onClick={() => addFavourite(cocktail)} className={"favourite-button"}>Add
-                    to favorites</button>
-                    <button onClick={() => {
-                        history(-1);
-                        deleteFavourite(cocktail.id)
-                    }} className={"favourite-button"}>Remove
-                        from favorites</button></div>
-                <div className="box b"><img className="cocktail-recipe_image" src={cocktail.imageUrl}
-                                            alt={cocktail.name}/></div>
-                <div className="box c"><h3>Glass type:</h3> {cocktail.glass}</div>
-                <div className="box d"><h3>Ingredients:</h3> {allIngredients}</div>
-                <div className="box e">
-                    {languages()}<br/>
-                    <img src={germanPic} alt={"german-Pic"} onClick={germanLanguage} className={"languages"}/>
-                    <img src={frenchPic} alt={"french-Pic"} onClick={frenchLanguage} className={"languages"}/>
-                    <img src={italianPic} alt={"italian-Pic"} onClick={italianLanguage} className={"languages"}/>
-                    <img src={spanishPic} alt={"spanish-Pic"} onClick={spanishLanguage} className={"languages"}/>
-                    <img src={englishPic} alt={"english-Pic"} onClick={englishLanguage} className={"languages"}/>
+        return (<div className="cocktail-recipe_">
+            <div className="cocktail-recipe_card">
+                <div className="wrapper">
+                    <div className="box a">{cocktail.name}<br/>
+                        <button onClick={() => addFavourite(cocktail)} className={"favourite-button"}>Add
+                            to favorites
+                        </button>
+                        <button onClick={() => {
+                            history(-1);
+                            deleteFavourite(cocktail.id)
+                        }} className={"favourite-button"}>Remove
+                            from favorites
+                        </button>
+                    </div>
+                    <div className="box b"><img className="cocktail-recipe_image" src={cocktail.imageUrl}
+                                                alt={cocktail.name}/></div>
+                    <div className="box c"><h3>Glass type:</h3> {cocktail.glass}</div>
+                    <div className="box d"><h3>Ingredients:</h3>{allIngredients} </div>
+                    <div className="box e">
+                        {language()}<br/>
+                        <img src={germanPic} alt={"german-Pic"} onClick={germanLanguage} className={"languages"}/>
+                        <img src={frenchPic} alt={"french-Pic"} onClick={frenchLanguage} className={"languages"}/>
+                        <img src={italianPic} alt={"italian-Pic"} onClick={italianLanguage} className={"languages"}/>
+                        <img src={spanishPic} alt={"spanish-Pic"} onClick={spanishLanguage} className={"languages"}/>
+                        <img src={englishPic} alt={"english-Pic"} onClick={englishLanguage} className={"languages"}/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>)
+        </div>)
 }

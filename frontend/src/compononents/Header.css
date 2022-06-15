@@ -7,7 +7,7 @@ h1 {
     justify-content: center;
     align-items: center;
     background-color: #F5CC89;
-    font-family: "Apple Chancery";
+    font-family: "Apple Chancery", serif;
     margin-bottom: 50px;
 }
 
@@ -44,3 +44,70 @@ h1 {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+.navbar-right {
+    float: right;
+}
+
+.cart-button{
+    background-color: #DBB67B;
+    border: none;
+    font-size: 20px;
+    border-radius: 8px;
+}
+.cart-button:hover{
+    background-color: #BD9D6A;
+    color: black;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+}
+
+.badge {
+    background-color: #BD9D6A;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.shopping-cart {
+    margin: 60px -120px;
+    float: right;
+    background: #DBB67B;
+    width: auto;
+    position: relative;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: left;
+}
+
+.shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+}
+
+.item-name {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.shopping-cart:after {
+    bottom: 100%;
+    left: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+
