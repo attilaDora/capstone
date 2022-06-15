@@ -9,7 +9,7 @@ export default function useCocktailRecipe(id:string | undefined){
         if (id){
             getCocktailBy(id)
         }
-    }, [])
+    }, [id])
     const getCocktailBy = (id:string) => {
         getCocktailById(id)
             .then(data => setCocktailRecipe(data))

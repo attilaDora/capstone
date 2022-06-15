@@ -22,6 +22,7 @@ public class ShoppingItemController {
         return shoppingItemsService.getShoppingItems();
     }
 
+    @SuppressWarnings("java:S4684")
     @PostMapping
     public ShoppingItem addShoppingItem(@RequestBody ShoppingItem shoppingItem) {
         return shoppingItemsService.addShoppingItem(shoppingItem);

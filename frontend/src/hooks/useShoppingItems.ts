@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getShoppingItems, postShoppingItem, removeFavourite} from "../service/CocktailsApiService";
+import {getShoppingItems, postShoppingItem, removeShoppingItem} from "../service/CocktailsApiService";
 import {ShoppingItem} from "../model/ShoppingItem";
 
 export default function useShoppingItems() {
@@ -11,13 +11,13 @@ export default function useShoppingItems() {
             .catch(() => console.error("There is no shopping items"))
     }, [])
 
-    const addShoppingItem = (shoppingItem: ShoppingItem) => {
+    const addShoppingItem = (shoppingItem: Omit<ShoppingItem, "id">) => {
         postShoppingItem(shoppingItem)
             .then((shoppingItem) => setShoppingItems([...shoppingItems, shoppingItem]))
     }
 
     const deleteShoppingItem =  (id:string) => {
-        removeFavourite(id)
+        removeShoppingItem(id)
             .then(() => setShoppingItems(shoppingItems.filter(shoppingItem => shoppingItem.id !==id)))
             .catch(() => console.error())
     }

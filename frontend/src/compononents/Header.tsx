@@ -10,12 +10,9 @@ export default function Header({deleteShoppingItem}:HeaderProps){
     const {shoppingItems} = useShoppingItems()
     const navigate = useNavigate()
     const [showCart, setShowCart] = useState(false);
+
     return (
         <header className="header">
-            <h1 className="header__title">Need a Cocktail</h1>
-            <button className="button" onClick={() => navigate(`/favourite`)}>My Favourites</button>
-            <button className="button" onClick={() => navigate(`/`)}>Homepage</button>
-
             <nav>
                 <div className={"container"}>
                     <ul className={"navbar-right"}>
@@ -26,6 +23,11 @@ export default function Header({deleteShoppingItem}:HeaderProps){
                     </ul>
                 </div>
             </nav>
+            <h1 className="header__title">Need a Cocktail</h1>
+
+            <button className="button" onClick={() => navigate(`/`)}>Homepage</button>
+            <button className="button" onClick={() => navigate(`/favourite`)}>My Favourites</button>
+            <button className="button" onClick={() => navigate(`/random`)}>Suggest a Cocktail</button>
 
             {showCart &&
             <div id="collapseID" className={"container"}>
@@ -33,10 +35,10 @@ export default function Header({deleteShoppingItem}:HeaderProps){
                     <div className={"shopping-cart-header"}>
                     </div>
                     <ul className={"shopping-cart-items"}>
-                        {shoppingItems.map((shoppingItem) => <div key={shoppingItem.id}>{shoppingItem.name} <button onClick= { () => deleteShoppingItem}>Delete</button> </div> )}
+                        {shoppingItems.map((shoppingItem) => <div key={shoppingItem.id}>{shoppingItem.name} <button className={"delete-button"} onClick= { () => deleteShoppingItem(shoppingItem.id)}>Delete</button> </div> )}
                     </ul>
                 </div>
-            </div>}
+            </div>}<br/>
 
         </header>
     )

@@ -27,7 +27,7 @@ export const removeFavourite: (id: string) => Promise<void> = (id:string) => {
     return axios.delete(`/favourite/${id}`)
 }
 
-export function postShoppingItem (addShoppingItem: ShoppingItem){
+export function postShoppingItem (addShoppingItem: Omit<ShoppingItem, "id">){
     return axios.post("/shoppingitem", addShoppingItem)
         .then(response => response.data)
 }
@@ -39,4 +39,9 @@ export const getShoppingItems: () => Promise<ShoppingItem[]> = () => {
 
 export const removeShoppingItem: (id: string) => Promise<void> = (id:string) => {
     return axios.delete(`/shoppingitem/${id}`)
+}
+
+export const getRandomCocktail: () => Promise<Cocktail> = () => {
+    return axios.get<Cocktail>("/random")
+        .then(response => response.data)
 }

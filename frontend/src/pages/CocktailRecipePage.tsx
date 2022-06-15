@@ -7,7 +7,7 @@ import {ShoppingItem} from "../model/ShoppingItem";
 type CocktailRecipeProps = {
     addFavourite : (favourite: Favourite) => void
     deleteFavourite : (id: string) => void
-    addShoppingItem: (shoppingItem:ShoppingItem) => void
+    addShoppingItem: (shoppingItem: Omit<ShoppingItem, "id">) => void
 }
 
 export default function CocktailRecipePage( { addFavourite, deleteFavourite, addShoppingItem } : CocktailRecipeProps ) {
