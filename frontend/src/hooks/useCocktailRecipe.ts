@@ -13,6 +13,7 @@ export default function useCocktailRecipe(id:string | undefined){
     const getCocktailBy = (id:string) => {
         getCocktailById(id)
             .then(data => setCocktailRecipe(data))
+
     }
 
     return {cocktailRecipe}

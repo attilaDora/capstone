@@ -10,6 +10,7 @@ export default function Header({deleteShoppingItem}:HeaderProps){
     const {shoppingItems} = useShoppingItems()
     const navigate = useNavigate()
     const [showCart, setShowCart] = useState(false);
+    let counter = shoppingItems.length;
 
     return (
         <header className="header">
@@ -19,7 +20,7 @@ export default function Header({deleteShoppingItem}:HeaderProps){
                         <button className={"cart-button"}
                                 onClick={() => setShowCart(!showCart)}>
                             🛒Cart <span
-                            className={"badge"}>0</span></button>
+                            className={"badge"}>{counter}</span></button>
                     </ul>
                 </div>
             </nav>
@@ -39,7 +40,6 @@ export default function Header({deleteShoppingItem}:HeaderProps){
                     </ul>
                 </div>
             </div>}<br/>
-
         </header>
     )
 }

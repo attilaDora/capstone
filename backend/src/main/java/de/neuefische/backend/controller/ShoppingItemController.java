@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.dto.CreateShoppingItemDto;
 import de.neuefische.backend.model.ShoppingItem;
 import de.neuefische.backend.service.ShoppingItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class ShoppingItemController {
 
     @SuppressWarnings("java:S4684")
     @PostMapping
-    public ShoppingItem addShoppingItem(@RequestBody ShoppingItem shoppingItem) {
-        return shoppingItemsService.addShoppingItem(shoppingItem);
+    public ShoppingItem addShoppingItem(@RequestBody CreateShoppingItemDto newItem) {
+        return shoppingItemsService.addNewShoppingItem(newItem);
     }
     @DeleteMapping("{id}")
     public void deleteShoppingItems(@PathVariable String id) {shoppingItemsService.deleteShoppingItems(id);}

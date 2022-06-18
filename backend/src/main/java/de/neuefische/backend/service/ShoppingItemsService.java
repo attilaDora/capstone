@@ -1,5 +1,6 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.dto.CreateShoppingItemDto;
 import de.neuefische.backend.model.ShoppingItem;
 import de.neuefische.backend.repository.ShoppingItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,10 @@ public class ShoppingItemsService {
         return shoppingItemsRepository.findAll();
     }
 
-    public ShoppingItem addShoppingItem(ShoppingItem shoppingItem) {
-        ShoppingItem addShoppingItem = new ShoppingItem();
-        addShoppingItem.setId(shoppingItem.getId());
-        addShoppingItem.setName(shoppingItem.getName());
-        return shoppingItemsRepository.insert(addShoppingItem);
+    public ShoppingItem addNewShoppingItem(CreateShoppingItemDto item) {
+        ShoppingItem newItem = new ShoppingItem();
+        newItem.setName(item.getName());
+        return shoppingItemsRepository.insert(newItem);
     }
     public void deleteShoppingItems(String id){shoppingItemsRepository.deleteById(id);}
 }
