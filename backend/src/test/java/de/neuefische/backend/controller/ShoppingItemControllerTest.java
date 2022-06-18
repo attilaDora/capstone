@@ -63,7 +63,6 @@ class ShoppingItemControllerTest {
         ShoppingItem addShoppingItem = ShoppingItem
                 .builder()
                 .name("shoppingItem1")
-                .id("123")
                 .build();
         //WHEN
         ShoppingItem actual = webTestClient.post()
@@ -75,9 +74,11 @@ class ShoppingItemControllerTest {
                 .returnResult()
                 .getResponseBody();
         //THEN
+        assertNotNull(actual);
+        assertNotNull(actual.getId());
         ShoppingItem expected = ShoppingItem
                 .builder()
-                .id("123")
+                .id(actual.getId())
                 .name("shoppingItem1")
                 .build();
         assertEquals(expected, actual);
