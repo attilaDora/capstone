@@ -21,6 +21,7 @@ class ShoppingItemControllerTest {
     @BeforeEach
     public void clean(){shoppingItemsRepository.deleteAll();}
 
+
     @Test
     void getShoppingItem() {
         //GIVEN
@@ -63,7 +64,6 @@ class ShoppingItemControllerTest {
         ShoppingItem addShoppingItem = ShoppingItem
                 .builder()
                 .name("shoppingItem1")
-                .id("123")
                 .build();
         //WHEN
         ShoppingItem actual = webTestClient.post()
@@ -77,8 +77,8 @@ class ShoppingItemControllerTest {
         //THEN
         ShoppingItem expected = ShoppingItem
                 .builder()
-                .id("123")
                 .name("shoppingItem1")
+                .id(actual.getId())
                 .build();
         assertEquals(expected, actual);
     }

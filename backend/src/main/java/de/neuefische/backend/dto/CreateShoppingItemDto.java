@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 public class CreateShoppingItemDto {
 
     private String name;
+    private String id;
 
 }
